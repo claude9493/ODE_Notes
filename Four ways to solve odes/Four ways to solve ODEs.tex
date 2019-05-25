@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\setlength\parindent{0em}
+
+\title{First order linear ODEs}
+\author{Yun Zhang}
+\date{}
+\begin{document}
+\maketitle
+\section{Method of Integrating Factors}
+\subsection{Restriction}
+This method can be applied to \textbf{$1_{st}$ order linear equation}, which has such standard form:
+\begin{equation}
+	\frac{dy}{dt}+p(t)y = g(t) 
+\end{equation}
+% \[\frac{dy}{dt}+p(t)y = g(t) \]
+\subsection{Description}
+\begin{itemize}
+	\item First, find the \textbf{integrating factor} function $\mu(t)$ by:
+	\begin{equation}
+			 \mu(t) = e^{\int{p(t)dt}} 
+	\end{equation}
+	\item Then, we can get the solution by: 
+	\begin{equation}
+		y = \frac{1}{\mu(t)}(\int \mu(t)g(t)dt+c)\text{ , c is a constant}
+	\end{equation}
+%	\[y = \frac{1}{\mu(t)}(\int \mu(t)g(t)dt+c)\text{ , c is a constant} \]
+	\item Check whether there is any equilibrium solution. And if there is any initial condition, use it to get the constant $c$.
+\end{itemize}
+
+\section{Method of constant variation}
+\subsection{Restriction}
+This method has same restriction with the method of integrating factors.
+\subsection{Description}
+\begin{itemize}
+	\item First, change euqation (1) to a simpler ODE by let $g(t)$ to be zero. The original equation is changed to 
+	\begin{equation}
+			\frac{dy}{dt}+p(t)y = 0
+	\end{equation}
+	which is called to be \textbf{homogeneous}.
+	\item Then, solve the new ODE, and we can get its solution $y = ce^{-\int p(t)dt}$
+	\item Let $c$ to be a function of $t$ (i.e. $c(t)$), and substititute it back to the original equation:
+	\[c'(t)e^{-\int p(t)dt} + c(t)(e^{-\int p(t)dt})' + p(t)c(t)e^{-\int p(t)dt} = g(t)\]
+	and we can get:
+	\begin{equation}
+		c'(t)e^{-\int p(t)dt} = g(t)
+	\end{equation}
+	\item From the above equation, we can easily solve $c(t)$ with a new constant$C$, then we can get $y(t)$ by substuting $c(t)$ to the relation of $y(t)$ and $c(t)$
+	\item Check whether there is any equilibrium solution. And if there is any initial condition, use it to get the constant $C$.
+\end{itemize}
+
+\section{Separable Equation}
+\subsection{Restriction}
+\textbf{Separable} equations are ODEs which are in the form:
+\begin{equation}
+	M(x)+N(y)\frac{dy}{dx} = 0
+\end{equation}
+, where $M$ is a fuction of $x$ only, and $N$ is a function of $y$ only. Because if it is written in the differentional form:
+\begin{equation}
+	M(x)dx+N(x)dy = 0
+\end{equation}
+terms can be placed on opposite sides of the equation, which looks more symmetric.
+\subsection{Description}
+To solve a separable equation, we return to Eq.(6), and let $H_1(x)$ and $H_2(x)$ to be any antiderivatives of $M$ and $N$, respectively. And Eq.(6) becomes
+\begin{equation}
+	H_1'(x) +H_2'(y)\frac{dy}{dx} = 0
+\end{equation}
+If $y$ is regarded as a function of $x$, then according to the chaing rule,
+\[H_2'(y)\frac{dy}{dx} = \frac{d}{dy}H_2(y)\frac{dy}{dx} = \frac{d}{dx}H_2(y) \]
+Then we can write Eq.(8) as:
+\begin{equation}
+	\frac{d}{dx}\left[ H_1(x)+H_2(x) \right] = 0
+\end{equation}
+By integrating it, we obtain:
+\begin{equation}
+	H_1(x)+H_2(y) = c
+\end{equation}
+where c is an arbitrary canstant. Eq.(10) defines the solytion \textbf{implicitly}. If it's obvious to see the explicit solution, you can change Eq.(10) to a explicit form.\\
+
+Finally, check whether there is any equilibrium solution. And if there is any initial condition, use it to get the constant $c$.
+
+\section{Exact Equation}
+\subsection{Restriction}
+Let the differeatial equation
+\begin{equation}
+	M(x,y)+N(x,y)y' = 0
+\end{equation}
+be given. Suppose we can identify a function $\psi(x,y)$ s.t.
+\begin{equation}
+	\frac{\partial\psi}{\partial x}(x,y) = M(x,y),\qquad\frac{\partial\psi}{\partial y}(x,y) = N(x,y)
+\end{equation}
+and such that $\psi(x,y)=c$ defines $y=\phi(x)$ implicitly as a differantiable function of $x$. Then the differential equation Eq.(11) becomes
+\begin{equation}
+	\frac{d}{dx}\psi\left[x, \phi(x)\right] = 0
+\end{equation}
+In this case, Eq.(11) is said to be an \textbf{exact} differential equation.
+\subsection{Description}
+First we check whether a given differential equation is exact by computing $M_y$ and $N_x$ from Eqs.(12) and check whether they are equal. If so, the equation is exact. 
+
+Then, we integrate the first of Eqs.(12) with respect to $x$ and obtain:
+\begin{equation}
+	\psi(x,y) = Q(x,y)+h(y)
+\end{equation}
+The function $h$ in Eq.(14) is an arbitrary differential funciton of $y$. Then we combine Eq.(14) with the second of Eq.(12), we can get:
+\[\psi_y(x,y) = \frac{\partial Q}{\partial y}(x,y) + h'(y) = N(x,y) \]
+Solving it for $h'(y)$, we have
+\begin{equation}
+	h'(y) = N(x,y) - \frac{\partial Q}{\partial y}(x,y)
+\end{equation}
+It is easy to show that the right side of Eq.(16) deos not depend on $x$. Then we can find $h(y)$ by integrating Eq.(16). Substitute it back to Eq.(14), we can get the implicit solution.
+
+Finally, do not forget to seek the equilibrium solution and computing the constant if there is any initial condition.
+\subsection{Strict definition of exact equation}
+Let the function $M$, $N$, $M_y$, and $N_x$ be \textbf{continuous} in the rectangular region $R$:  $\alpha < x <\beta,\quad \gamma < y <\delta$. Then Eq.(11)\[M(x,y)+N(x,y)y' = 0\] is an exact differential equation in $R$ iff
+\begin{equation}
+	M_y(x,y) = N_x(x,y)
+\end{equation}
+at each point of R. That is there exists a funtion $\psi$ satisfying Eqs.(12) iff $M$ and $N$ satisfy Eq.(16).
+\end{document}

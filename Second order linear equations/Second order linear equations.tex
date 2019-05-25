@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\setlength\parindent{0em}
+
+\title{Second order linear Equations}
+\author{Yun Zhang}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Make the problem clear}
+A second order ordinary differential equation has the form
+\begin{equation}
+	\frac{d^2y}{dt^2} = f\left(t, y, \frac{dy}{dt}\right)
+\end{equation}
+It is said to be \textbf{linear} if the function $f$ has the form
+\begin{equation}
+	f\left(t,y,\frac{dy}{dt}\right) = g(t) - p(t)\frac{dy}{dt} - q(t)y 
+\end{equation}
+here $g$, $p$, $q$ are specified funcitons of $t$, the independent variable. We urally rewirite the Eq.(1) as 
+\begin{equation}
+	y'' + p(t)y' + q(t) y = g(t)
+\end{equation}
+Also we often see the equation
+\begin{equation}
+	P(t)y'' + Q(t)y' +R(t)y = G(t)
+\end{equation}
+If $P(t) \neq 0$ we can divided Eq.(4) by $P(t)$ to obtain Eq.(3).
+
+\subsection*{homogeneous and nonhomogeneous}
+
+$\qquad$A second order linear equation is said to be \textbf{homogeneous} if the term $g(t)$ in Eq.(3) or the term $G(t)$ in Eq.(4) is zero for all $t$. Otherwise the equation is called \textbf{nonhomogeneous}. The term $g(t)$ or $G(t)$ is sometimes called the nonhomogeneous term.
+
+
+\section{Homogeneous Equatioins with Constant Coefficients}
+The equation we discussed in this section has the form
+\begin{equation}
+	ay''+by'+cy = 0
+\end{equation}
+where $a,b,c$ are give constants.
+\subsection{characteristic equation}
+We start by seeking exponential solutions of the frm $y = e^{rt}$, $r$ is a parameter to be determined. Then it follows that $y' = re^{rt}$ and $y'' = r^2e^{rt}$. Substitute them for $y$, $y'$ and $y''$ in Eq.(5), we obtain
+\[(ar^2+br+c)e^{rt} = 0\]
+or, since $e^{rt}\neq 0$,
+\begin{equation}
+	ar^2+br+c = 0
+\end{equation}
+Eq.(6) is called the characteristic equation for the differential equation (5).\\
+Then we begin to discuss the root of Eq.(6).
+\subsection{$b^2 - 4ac > 0$ two different real roots}
+Suppose the two different roots of the characteristic equation is $r_1$ and $r_2$. Then $y_1(t) = e^{r_1t}$ and $y_2(t) = 3^{r_2t}$ are two solutions of Eq.(5). Moreover, the general solution can be written as 
+\begin{equation}
+	y = c_1y_1(t) + c_2y_2(t) = c_1e^{r_1t}+c_2e^{r_2t}
+\end{equation}
+Since the general solutioni is in such form, the solution has a relatively simple geometrical behavior: 
+\begin{quote}
+	As $t$ increases, the magnitude of the solution either tends to zero (both exponents are negative) or else grows rapidly (at least one exponent is positive).
+\end{quote}
+If we have the initial conditions that \[y(t_0) = y_0\text{,  } y'(t_0) = y'_0\]
+By substituting $t=t_0$ and $y = y_0$ in Eq.(7) we obtain
+\begin{equation}
+	c_1e^{r_1t_0}+c_2e^{r_2t_0} = y_0
+\end{equation}
+and
+\begin{equation}
+	c_1r_1e^{r_1t_0}+c_2r_2e^{r_2t_0} = y'_0
+\end{equation}
+So solving the two equations, we can find that:
+\begin{equation}
+	c_1 = \frac{y'_0-y_0r_2}{r_1-r_2}e^{-r_1t_0} \text{,  } c_2 = \frac{y_0r_1-y'_0}{r_1-r_2}e^{-r_2t_0}
+\end{equation}
+Recall that $r_1-r_2 \neq 0$, so Eq.(10) always make sense.
+
+
+\subsection{$b^2 - 4ac < 0$ complex and conjugate roots}
+Suppose now that $b^2-4ac$ is negative. Then the roots of Eq.(6) are conjugate complex numbers.
+We denote them by 
+\begin{equation}
+	r_1 = \lambda + i\mu\text{,  } r_2 = \lambda -i\mu
+\end{equation}
+Where $\lambda\text{ and }\mu$ are real. Then the corresponding expressions for $y$ are
+\begin{equation}
+	y_1(t) = exp\left[(\lambda+i\mu)t\right]\text{,  } 	y_2(t) = exp\left[(\lambda-i\mu)t\right]
+\end{equation}
+\subsubsection*{Euler's Formula}
+From Taylor's series, we have
+\begin{align*}
+e^{it} &= \sum_{n=0}^{\infty}\frac{(it)^n}{n!}\\
+	   &= \sum_{n=0}^{\infty}\frac{(-1)^nt^{2n}}{(2n)!} + i\sum_{n=1}^{\infty}\frac{(-1)^{n-1}t^{2n-1}}{(2n-1)!}\\
+	   &= cost+i sint
+\end{align*}
+So 
+\begin{equation}
+	e^{(\lambda+i\mu)t} = e^{\lambda t}cos\mu t+ie^{\lambda t}sin\mu t
+\end{equation}
+Chosing the real part of of either $y_1(t)$ and $y_2(t)$, we obtain the general solution of Eq.(5)
+\begin{equation}
+	y = c_1e^{\lambda t}cos\mu t + c_2e^{\lambda t}sin\mu t
+\end{equation}
+
+\subsection{$b^2 - 4ac = 0$ repeated root}
+
+
+\end{document}
